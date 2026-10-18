@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-lowest":"#0c0e11","surface-dim":"#111317","on-tertiary":"#3f0f82","surface-container-low":"#1a1c1f","surface-container-high":"#282a2d","on-secondary-fixed":"#351000","inverse-primary":"#735c00","on-secondary":"#552002","on-background":"#e2e2e6","on-secondary-container":"#faa37a","secondary":"#ffb694","on-tertiary-container":"#542c97","tertiary-fixed":"#ebdcff","primary":"#f2ca50","surface":"#111317","on-error-container":"#ffdad6","surface-tint":"#e9c349","on-primary-fixed-variant":"#574500","error":"#ffb4ab","surface-variant":"#333538","on-primary":"#3c2f00","primary-container":"#d4af37","secondary-fixed":"#ffdbcc","inverse-on-surface":"#2f3034","on-primary-container":"#554300","on-tertiary-fixed-variant":"#562e99","primary-fixed-dim":"#e9c349","on-surface":"#e2e2e6","on-tertiary-fixed":"#260059","surface-bright":"#37393d","secondary-fixed-dim":"#ffb694","tertiary-fixed-dim":"#d4bbff","tertiary":"#dac5ff","surface-container":"#1e2023","on-primary-fixed":"#241a00","on-error":"#690005","outline-variant":"#4d4635","error-container":"#93000a","on-surface-variant":"#d0c5af","primary-fixed":"#ffe088","outline":"#99907c","secondary-container":"#753817","inverse-surface":"#e2e2e6","on-secondary-fixed-variant":"#723615","surface-container-highest":"#333538","background":"#111317","tertiary-container":"#c3a3ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.5rem","gutter":"1.5rem","gutter-mobile":"1rem","space-md":"1rem","space-xs":"0.25rem","margin-mobile":"1.25rem","space-lg":"1.5rem","space-xl":"2.5rem","margin":"3rem"},"fontFamily":{"body-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-md":["Playfair Display"],"title-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-md":["Playfair Display"],"headline-lg":["Playfair Display"],"display-md-mobile":["Playfair Display"],"label-md":["Space Mono"],"label-sm":["Space Mono"],"display-lg":["Playfair Display"],"headline-sm":["Playfair Display"],"display-lg-mobile":["Playfair Display"]},"fontSize":{"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"30px","fontWeight":"400"}],"headline-md":["26px",{"lineHeight":"34px","fontWeight":"500"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"display-md":["44px",{"lineHeight":"52px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"600"}],"display-md-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"18px","letterSpacing":"0.05em","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"500"}],"display-lg-mobile":["38px",{"lineHeight":"46px","letterSpacing":"-0.01em","fontWeight":"700"}]}}}}</script><style>
+  html { scroll-behavior: smooth; }
+  body:not(.archive-revealed) { overflow-x: hidden; }
+  body:not(.archive-revealed) header, body:not(.archive-revealed) footer { visibility: hidden; opacity: 0; pointer-events: none; }
+  header, footer { transition: opacity .7s ease, visibility .7s ease; }
+  .focus-landing { min-height: 100svh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(ellipse at 50% 44%, rgba(212,175,55,.12), transparent 42%), #0c0e11; }
+  .focus-landing::before, .focus-landing::after { content: ""; position: absolute; z-index: -1; border: 1px solid rgba(242,202,80,.13); border-radius: 50%; width: min(74vw, 760px); aspect-ratio: 1; }
+  .focus-landing::after { width: min(58vw, 590px); border-color: rgba(242,202,80,.08); }
+  .focus-copy { width: min(850px, calc(100% - 2.5rem)); text-align: center; padding: 7rem 0 3rem; }
+  .focus-copy h1 { font: 500 clamp(2.4rem, 6.5vw, 5.2rem)/1.12 "Playfair Display", serif; letter-spacing: -.035em; color: #f4eddb; max-width: 850px; margin: 1.5rem auto 2.5rem; }
+  .focus-kicker { font: 10px "Space Mono", monospace; letter-spacing: .24em; text-transform: uppercase; color: #f2ca50; }
+  .focus-button { display: inline-flex; align-items: center; gap: .65rem; border: 1px solid rgba(242,202,80,.55); border-radius: 2px; padding: .95rem 1.35rem; background: rgba(242,202,80,.1); color: #f2ca50; font: 12px "Space Mono", monospace; letter-spacing: .08em; text-transform: uppercase; transition: background .25s, transform .25s; cursor: pointer; }
+  .focus-button:hover { background: rgba(242,202,80,.2); transform: translateY(-2px); }
+  .focus-hint { margin-top: 3rem; color: #817b6c; font: 10px "Space Mono", monospace; letter-spacing: .12em; }
+  #archive-content { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
+  body.archive-revealed #archive-content { opacity: 1; transform: none; }
+  .campaign-wrap { max-width:1080px; width:calc(100% - 2rem); margin:auto; padding:2rem 0 5rem; }
+  #campaign { min-height:calc(100svh - 80px); background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.1),transparent 46%); }
+  .campaign-top { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1.5rem; }
+  .epic-track { display:grid; grid-template-columns:repeat(10,minmax(0,1fr)); gap:.45rem; margin:1.2rem 0 2rem; }
+  .epic-step { height:5px; background:#282a2d; border-radius:9px; transition:background .35s,transform .35s; }
+  .epic-step.done { background:#f2ca50; } .epic-step.current { background:#dac5ff; transform:scaleY(1.7); }
+  .scenario-card,.reward-card { border:1px solid rgba(242,202,80,.22); background:linear-gradient(145deg,#1a1c1f,#101114 75%); border-radius:18px; padding:clamp(1.4rem,5vw,3.5rem); box-shadow:0 25px 80px rgba(0,0,0,.4); animation:card-in .55s ease both; }
+  .scenario-card h2 { font:600 clamp(2rem,5vw,3.7rem)/1.08 "Playfair Display",serif; margin:.8rem 0 1rem; }
+  .scenario-text { color:#d0c5af; font-size:1.05rem; line-height:1.8; max-width:760px; }
+  .choice-list { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-top:2rem; }
+  .choice-button { text-align:left; min-height:76px; padding:1rem 1.2rem; border:1px solid #4d4635; border-radius:10px; color:#e2e2e6; background:#111317; cursor:pointer; font:500 14px/1.55 "Plus Jakarta Sans",sans-serif; transition:all .2s; }
+  .choice-button:hover:not(:disabled),.choice-button:focus-visible { border-color:#f2ca50; background:#25231a; transform:translateY(-2px); outline:none; }
+  .choice-button:disabled { cursor:default; opacity:.68; } .choice-button.selected { border-color:#f2ca50; box-shadow:inset 0 0 0 1px #f2ca50; opacity:1; }
+  .feedback-panel { margin-top:1.4rem; padding:1.3rem 1.5rem; border-radius:10px; background:#0c0e11; border-left:3px solid #f2ca50; animation:card-in .4s ease both; }
+  .feedback-panel h3 { margin:0 0 .5rem; color:#f2ca50; font:600 20px "Playfair Display",serif; }
+  .game-action,.archive-toggle { margin-top:1rem; border:0; border-radius:5px; background:#f2ca50; color:#241a00; padding:.8rem 1.2rem; font:600 13px "Space Mono",monospace; cursor:pointer; }
+  .reward-card { text-align:center; background:radial-gradient(ellipse at top,#282316,#111317 60%); } .reward-score { font:700 clamp(3.5rem,10vw,7rem)/1 "Playfair Display",serif; color:#f2ca50; margin:1rem; }
+  .archive-toggle { display:block; margin:2rem auto 0; color:#99907c; background:transparent; text-decoration:underline; }
+  #archive-content > .relative { display:none; } #archive-content.show-archive > .relative { display:block; }
+  @keyframes card-in { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+  @media(max-width:640px) { .choice-list{grid-template-columns:1fr}.epic-track{gap:.25rem}.campaign-top{align-items:flex-start;flex-direction:column} }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+</style></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-primary/20 shadow-[0_4px_24px_rgba(0,0,0,0.5)]"><div class="h-20 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded border border-primary/30 p-0.5 bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">explore</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-wide leading-none">Chronicles &amp; Curiosities</span><span class="font-label-sm text-label-sm text-outline tracking-widest uppercase mt-0.5">Archive of Lore, Magic &amp; Archival Truth</span></div></div></div><nav class="hidden xl:flex items-center gap-space-lg h-full" data-active-classes="text-primary border-b-2 border-primary"><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="home-and-tales" href="#">Home &amp; Tales</a><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="history-vs-myth-timeline" href="#">History vs. Myth Timeline</a><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="curator-submission-portal" href="#">Curator Submission Portal</a><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="archival-colophon" href="#">Archival Colophon</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center relative"><span class="material-symbols-outlined absolute left-2.5 text-outline text-[18px] pointer-events-none">search</span><input class="w-56 lg:w-64 bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded border border-outline-variant/40 pl-8 pr-12 py-1.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search the codex..." type="text"/><kbd class="absolute right-2 font-label-sm text-label-sm text-outline border border-outline-variant/60 rounded px-1.5 py-0.5 bg-surface-container-high">⌘K</kbd></div><div class="hidden lg:flex items-center gap-space-xs"><button class="px-2 py-1 rounded font-label-sm text-label-sm border border-tertiary/40 bg-surface-container text-tertiary hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors" type="button">Magic</button><button class="px-2 py-1 rounded font-label-sm text-label-sm border border-secondary/40 bg-surface-container text-secondary hover:bg-secondary-container hover:text-on-secondary-container transition-colors" type="button">History</button><button class="px-2 py-1 rounded font-label-sm text-label-sm border border-primary/40 bg-surface-container text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors" type="button">Folklore</button></div><div class="flex items-center gap-space-sm pl-space-xs border-l border-outline-variant/30"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-sm text-label-sm text-primary leading-tight">Senior Archivist</span><span class="font-label-sm text-[10px] text-outline leading-tight">Index Rank IV</span></div><div class="relative flex items-center justify-center p-0.5 rounded-full border border-primary/40"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvp1s4gm7afQoZLTsHqPbX0K-YwntkWdmiMs6ZcR2U0shd7tSMDU2zSrWZ-fpHMFkwHbRE-kuGQcj8Qa5-90oMlY8hAF3n0n6gN3t36jO-dOuhtANoMqem2Dmq9-rkMVaV8sPJnsXsNJQ6CM2saFOMK6xu0IPMOsSdZ9fsGy4QKAslLcNDyKCKXOH3hU3MYSPl3UwCBqJvwXAYjOq3qRrUWb8TwfTIO1Vr_DnYa8xd_Oz8j4bFlN80Yw"/></div></div></div></div></header><main class="w-full bg-surface min-h-screen"><section class="focus-landing" id="focus-landing" aria-labelledby="focus-title"><div class="focus-copy"><span class="focus-kicker">A Choice-Driven Chronicle</span><h1 id="focus-title">Ten epics. Ten choices. How much of history is hidden inside its myths?</h1><button class="focus-button" id="begin-exploration" type="button">Begin the Journey <span class="material-symbols-outlined" aria-hidden="true">south</span></button><p class="focus-hint">A journey through history, folklore &amp; magic</p></div></section><div id="archive-content" class="flex flex-col w-full pt-20">
+<section id="campaign" aria-label="Epic campaign"><div class="campaign-wrap"><div class="campaign-top"><div><span class="focus-kicker">Chronicles &amp; Curiosities · Campaign</span><h1 style="font:600 clamp(1.8rem,4vw,2.6rem) 'Playfair Display',serif;margin:.5rem 0">The Unwritten Archive</h1></div><div class="font-label-sm text-label-sm text-primary">✦ <span id="score-display">0</span> insight</div></div><div class="epic-track" id="epic-track" aria-label="Campaign progress"></div><div id="campaign-stage" aria-live="polite"></div><button id="archive-toggle" class="archive-toggle" type="button">Explore the full archive</button></div></section>
+<!-- Subtle Ambient Glow Canvas Decorators (contained) -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-96 -left-32 w-[420px] h-[420px] bg-tertiary/5 rounded-full blur-[130px] pointer-events-none"></div>
+<!-- MAIN DASHBOARD CONTAINER -->
+<div class="max-w-[1360px] mx-auto px-gutter py-space-xl flex flex-col gap-space-xl">
+<!-- ========================================== -->
+<!-- SECTION 1: TALES OF THE DAY (HERO CURATION) -->
+<!-- ========================================== -->
+<section class="flex flex-col gap-space-md">
+<!-- Section Bar / Metadata Header -->
+<div class="flex flex-wrap items-end justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              Folio Diurnalis • Curated Canon
+            </span>
+<span class="font-label-sm text-label-sm text-outline">/ Anno MMXXIV • Vol. XIV</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-outline">
+<span class="hidden sm:inline">Archival Verification Index: <strong class="text-primary font-bold">99.4%</strong></span>
+<span class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">tune</span> Curation Criteria
+            </span>
+</div>
+</div>
+<!-- 8-Column / 4-Column Asymmetric Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Primary Tale (8 Columns) -->
+<article class="lg:col-span-8 bg-surface-container-low rounded-xl shadow-xl flex flex-col justify-between overflow-hidden relative group">
+<!-- Background Image with Scrim -->
+<div class="relative h-72 sm:h-84 md:h-96 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Intricate astronomical clock of Prague, the Orloj, in deep twilight mist. Ancient tarnished brass gears, gilded zodiac dials, aged stone gothic cathedral facade, warm candlelight reflecting on antique copper astronomical mechanisms with dark mystical atmosphere, cinematic editorial photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZamcfhFfb7XaWzkaxdFDZ8iVeeMCfOIgqc_WAKn53lV4ls5s_GzWj0HBkgIqucSp6WbpMLOIWn2QY-OYKoloCrIwkLJ1M1uG1mT6DoyZ8-TEOPdLGDOzROFRjYCWuoz_v505XJ4GFjmiEuf-Pgc3P5afjVBr5Vvb9LoaF5M1kT0QnmXIREahiKIDBHAWBR6KG9QMtK4NRPbvxZ-4Q82SGsreTR3VQfhgutZ6CCCk1UHzJ4uil4YWDww')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/60 to-transparent"></div>
+<!-- Floating Metadata Pills on Plate -->
+<div class="absolute top-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-1 rounded font-label-sm text-label-sm bg-primary/20 text-primary backdrop-blur-md">
+                    History &amp; Lore
+                  </span>
+<span class="px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container-lowest/80 text-on-surface backdrop-blur-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">schedule</span> 1410 CE • Bohemia
+                  </span>
+</div>
+<div class="relative group/popover">
+<div class="px-2.5 py-1 rounded font-label-sm text-label-sm bg-secondary-container/90 text-on-secondary-container backdrop-blur-md flex items-center gap-1.5 cursor-pointer shadow-md">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                    Archival Provenance
+                  </div>
+<!-- Popover -->
+<div class="absolute right-0 top-full mt-2 w-72 p-3 bg-surface-container-highest text-on-surface rounded-lg shadow-2xl opacity-0 invisible group-hover/popover:opacity-100 group-hover/popover:visible transition-all duration-200 z-30 pointer-events-none group-hover/popover:pointer-events-auto">
+<div class="font-label-sm text-[11px] text-primary uppercase tracking-wider mb-1">Archival Ledger Proof</div>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant">
+                      Bodleian MS. Hunt. 392 &amp; Archival Council Records of Old Town Prague (Verified Archival Record, 1459 Ledger).
+                    </p>
+</div>
+</div>
+</div>
+<!-- Reading time bottom right of banner -->
+<div class="absolute bottom-3 right-4 font-label-sm text-label-sm text-on-surface/80 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded">
+                6 min read
+              </div>
+</div>
+<!-- Content Area -->
+<div class="p-space-lg flex flex-col gap-space-md flex-grow justify-between">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">Folio 084 • Pragensis Horologium</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">
+                  The Astronomical Clock of Prague &amp; The Blinded Horologist
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                  Legend insists master Hanuš was blinded with hot iron rods by Prague councillors so he could never replicate the Orloj for another city. Historical municipal ledgers and guild testimonies tell a startlingly different tale of mechanical triumph, court appointments, and guild rivalries.
+                </p>
+</div>
+<!-- Interactive Comparison Box -->
+<div class="bg-surface-container rounded-lg p-space-md grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest/70 rounded">
+<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">auto_stories</span>
+<span>Folklore Myth</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+                    Blinded with hot needles by jealous civic leaders; in revenge, he reached into the gears before dying, cursing Prague for 400 years.
+                  </p>
+</div>
+<div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest/70 rounded">
+<div class="flex items-center gap-1.5 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">fact_check</span>
+<span>Archival Record (1459)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+                    Jan Růže (Hanuš) served as official city horologist until 1497, survived in good health, and received an honorary municipal pension.
+                  </p>
+</div>
+</div>
+<!-- Footer CTA -->
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">bookmark_added</span>
+<span>Catalogued under: Guild Municipalities &amp; Urban Legends</span>
+</div>
+<button class="px-5 py-2.5 rounded bg-primary text-on-primary font-title-md text-[14px] hover:bg-primary-container hover:text-on-primary-container transition-all shadow-[0_0_20px_rgba(242,202,80,0.2)] hover:shadow-[0_0_28px_rgba(242,202,80,0.4)] flex items-center gap-2" type="button">
+<span>Explore Full Chronicle &amp; Citations</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Secondary Lore Stack (4 Columns) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Secondary Card 1: Emerald Tablet -->
+<article class="bg-surface-container-low rounded-xl shadow-lg p-space-md flex flex-col justify-between group hover:bg-surface-container transition-all flex-1">
+<div class="flex flex-col gap-space-sm">
+<div class="relative h-44 w-full rounded overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Ancient carved green emerald stone tablet with esoteric Hermetic Greek and Alchemical Coptic hieroglyphs, softly lit in an Alexandrian scholar's candlelit scriptorium, warm amber light glinting on glass alembics and papyrus rolls, moody historical archival still life." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWKtaIk1LXwxPjYOhu8_E5jEm0TAwHpwMu9LfMUPysQedgaJvYwqpnUL0W7F29GRxC_psR67t908zcnyA0GGaRjfg-tMKH6LDw64YUrwYS2Aczz34O3F-gA5z7Yvb0OLbi6dBDMosaWhfqp0JYyVEq1xBtC0z5UZe9exkFMydtRUQIC6_6N_OPlNR5zeoUNwrwZJQdX3pMbpRYRL6b8qRfa7qyFYXlzRSUM1ho7JgJVRQY9P7dBz2CHA')"></div>
+<div class="absolute top-2.5 left-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-[11px] bg-tertiary-container/90 text-on-tertiary-container backdrop-blur-md">
+                      Magic • 300 CE Egypt
+                    </span>
+</div>
+<div class="absolute bottom-2.5 right-2.5 font-label-sm text-[11px] text-on-surface bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                    4 min read
+                  </div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+                    The Emerald Tablet &amp; The Alchemists of Alexandria
+                  </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    Hermes Trismegistus's ciphered tablet alleged transmutation of base lead into spiritual gold, grounded in Hellenistic metallurgical papyri.
+                  </p>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-outline font-label-sm text-[11px]">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">menu_book</span> Leiden Papyrus X
+                </span>
+<a class="text-primary hover:underline flex items-center gap-0.5" href="#timeline-explorer">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- Secondary Card 2: Brocken Spectre -->
+<article class="bg-surface-container-low rounded-xl shadow-lg p-space-md flex flex-col justify-between group hover:bg-surface-container transition-all flex-1">
+<div class="flex flex-col gap-space-sm">
+<div class="relative h-44 w-full rounded overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Atmospheric optical mountain phenomenon, Brocken Spectre in the foggy Harz mountains of Germany, a colossal shadowy figure projected onto alpine clouds with a glowing rainbow glory halo around its silhouette, cold eerie morning mist, haunting folklore illustration style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAjKswcWs8yYeYS1aB5Oj6rYOsTxbEPUQ8CaS60TEIP1JCDZXnZVUqI8AdGyJpmEdaEE_7LY3V5Ic8CiQwu4xLWEULUqO6yFv-eKBFPxeVgZHpMtq6_f8Hw4C34F7IVjzq1tcqzcYKFa2ibfazhKyO_NzfT0tfBEs2ygevky2sW9vg42EMHuhVHvLpqxr3c1IIuRkHtwHaYeZVcXDeN9G9a9Pc32Lw3w0i4CzDQL8q_lONLiDMPuvj-yQ')"></div>
+<div class="absolute top-2.5 left-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-[11px] bg-secondary-container/90 text-on-secondary-container backdrop-blur-md">
+                      Folklore • 16th Cent. Harz
+                    </span>
+</div>
+<div class="absolute bottom-2.5 right-2.5 font-label-sm text-[11px] text-on-surface bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                    5 min read
+                  </div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+                    The Wild Hunt of the Brocken Spectre
+                  </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    Phantom mountain giants terrorizing Saxon travelers unmasked as solar projection through diffraction rings across Harz peak fog banks.
+                  </p>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-outline font-label-sm text-[11px]">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">history_edu</span> German Folkloric Reg.
+                </span>
+<a class="text-primary hover:underline flex items-center gap-0.5" href="#timeline-explorer">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 2: HISTORY VS. MYTH TIMELINE       -->
+<!-- ========================================== -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg sm:p-space-xl flex flex-col gap-space-xl shadow-2xl" id="timeline-explorer">
+<!-- Explorer Header & Live Search Bar -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-xl">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">hourglass_empty</span> Chronological Decryption Matrix
+            </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">History vs. Myth Timeline</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Cross-referencing persistent mythological fabrications against corroborated archival municipal rolls, state charters, and primary excavation findings.
+            </p>
+</div>
+<!-- Live Search & Category Chips -->
+<div class="flex flex-col gap-space-sm w-full lg:w-auto">
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded pl-10 pr-4 py-2 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="chronicle-search" placeholder="Search 1,420 chronicles, legends, records..." type="text"/>
+</div>
+<!-- Category Chips -->
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-3 py-1 rounded font-label-sm text-label-sm bg-primary text-on-primary font-medium shadow-sm" type="button">
+                All (1,420)
+              </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm bg-surface-container text-tertiary hover:bg-surface-container-high transition-colors" type="button">
+                Magic (412)
+              </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm bg-surface-container text-secondary hover:bg-surface-container-high transition-colors" type="button">
+                History (688)
+              </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+                Folklore (320)
+              </button>
+</div>
+</div>
+</div>
+<!-- Interactive Era Slider / Stepper Bar -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Temporal Spectrum Horizon</span>
+<span class="font-label-sm text-label-sm text-primary">Selected: Middle Ages • Renaissance &amp; Alchemy</span>
+</div>
+<!-- Stepper Track -->
+<div class="relative py-2">
+<div class="h-1 w-full bg-surface-container-highest rounded-full relative">
+<div class="absolute left-[15%] w-[55%] h-full bg-primary/80 rounded-full"></div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-space-sm text-center">
+<div class="flex flex-col items-center group cursor-pointer">
+<span class="w-3 h-3 rotate-45 bg-surface-container-highest group-hover:bg-primary transition-colors mb-1.5"></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-medium">Antiquity</span>
+<span class="font-label-sm text-[9px] text-outline">BCE – 500 CE</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<span class="w-3.5 h-3.5 rotate-45 bg-primary ring-4 ring-primary/20 shadow-md mb-1.5"></span>
+<span class="font-label-sm text-[11px] text-primary font-bold">Middle Ages</span>
+<span class="font-label-sm text-[9px] text-primary/80">500 – 1400 CE</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<span class="w-3.5 h-3.5 rotate-45 bg-primary ring-4 ring-primary/20 shadow-md mb-1.5"></span>
+<span class="font-label-sm text-[11px] text-primary font-bold">Renaissance &amp; Alchemy</span>
+<span class="font-label-sm text-[9px] text-primary/80">1400 – 1650 CE</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<span class="w-3 h-3 rotate-45 bg-surface-container-highest group-hover:bg-primary transition-colors mb-1.5"></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-medium">Enlightenment</span>
+<span class="font-label-sm text-[9px] text-outline">1650 – 1800 CE</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<span class="w-3 h-3 rotate-45 bg-surface-container-highest group-hover:bg-primary transition-colors mb-1.5"></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-medium">Modern Era</span>
+<span class="font-label-sm text-[9px] text-outline">1800 CE – Present</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Stream Cards (3 Comparative Cards) -->
+<div class="flex flex-col gap-space-lg" id="tales-list">
+<!-- Card 1: Golem of Prague -->
+<article class="bg-surface-container-low rounded-xl p-space-lg flex flex-col lg:flex-row gap-space-lg items-stretch shadow-lg transition-transform hover:-translate-y-0.5">
+<div class="w-full lg:w-72 flex-shrink-0 relative rounded-lg overflow-hidden min-h-[180px]">
+<div class="w-full h-full bg-cover bg-center" data-alt="Ancient clay figure of the Golem lying dormant in the dusty mystical attic of Prague Old-New Synagogue, Hebrew holy script glowing faintly on its forehead, cobwebs, dark medieval Jewish quarter ambiance, warm candlelight and moonlight beams." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_npJe7nuwg24Ytr9hxxSIKY5uQRIj2CXnCFajxTPb2BOdAOiydzX4igoiJaw2tg4qiwGunzksnyYNyKSp1R0-Ny-VKJv3qTFiNNpce3iX2JsRez5024hwHFPiy8ZwHra_m7Ez4gshI81sMex-4zUuL39yDBRvR9dOWAjlK2OnOIQeaBiz_oLGcZ94fLYu--ek7qDTHdPXUXrZC6At83Xx7m4H5zN3KUQedqi62-KJkB7fmGX2KT0Aow')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-[10px] bg-tertiary-container/90 text-on-tertiary-container">Folklore / Magic</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-[10px] bg-surface-container-lowest/90 text-on-surface">1580 CE</span>
+</div>
+</div>
+<div class="flex flex-col justify-between flex-grow gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">The Golem of Prague &amp; Rabbi Judah Loew</h3>
+<span class="font-label-sm text-label-sm text-outline">Index #CR-0481</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  One of the most famous kabbalistic legends claims the Maharal constructed an anthropomorphic clay defender against antisemitic pogroms.
+                </p>
+</div>
+<!-- Dual-colored Myth vs Fact Split Box -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1">
+<span class="font-label-sm text-[11px] text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">cancel</span> Mythological Lore
+                  </span>
+<p class="font-body-sm text-[13px] text-on-surface leading-snug">
+                    A colossal clay automaton animated through divine incantations of the Shem HaMephorash, deactivated and hidden in the attic of Prague's Altneuschul.
+                  </p>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1">
+<span class="font-label-sm text-[11px] text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Corroborated History
+                  </span>
+<p class="font-body-sm text-[13px] text-on-surface leading-snug">
+                    Rabbi Loew wrote extensively on philosophy and halakha, never mentioning a golem. The legend was authored in 1834 by romantic revivalist Yudl Rosenberg.
+                  </p>
+</div>
+</div>
+<!-- Verified Primary Citation Button -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">account_balance</span>
+                  Prague Altneuschul Synagogue Municipal Archive • MS-Heb-92
+                </span>
+<button class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm" onclick="toggleCitationDrawer('golem')" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect Primary Citation</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2: Library of Alexandria -->
+<article class="bg-surface-container-low rounded-xl p-space-lg flex flex-col lg:flex-row gap-space-lg items-stretch shadow-lg transition-transform hover:-translate-y-0.5">
+<div class="w-full lg:w-72 flex-shrink-0 relative rounded-lg overflow-hidden min-h-[180px]">
+<div class="w-full h-full bg-cover bg-center" data-alt="The grand colonnade of the Great Library of Alexandria in Hellenistic Egypt, towering papyrus scroll shelves, scholars reading bronze instruments, harbor sea smoke drifting through marble arches at sunset, dignified historical realism." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDs6-AJ_iqLugKYHs_EkJD7iFJNWXyoo08eqTjQR0vpjJgfVYDIzkJg5cajF6ID9LsZwkdoTeqeCmM7pJP8lNfMK-e0GpQ2ZAzZE3p_hYyn-wstBNPnnURU0z1c2qcXL3cK4YMi5717snr4LoqPwlvDRPLc2GbmvW70ZuyLXq4t8xtSeV_MJ_jgU8cQ-0Vo2XH3Vs5R93doiJVlKw9FNjvW_955VK6aZpwAe2IbQNzsnh6JfQm4fvUccA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-[10px] bg-secondary-container/90 text-on-secondary-container">History</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-[10px] bg-surface-container-lowest/90 text-on-surface">48 BCE</span>
+</div>
+</div>
+<div class="flex flex-col justify-between flex-grow gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">The Cataclysmic Fire of the Library of Alexandria</h3>
+<span class="font-label-sm text-label-sm text-outline">Index #CR-0112</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Pop history often mourns a single apocalyptic night when Julius Caesar or Caliph Omar set the entire sum of classical human knowledge ablaze.
+                </p>
+</div>
+<!-- Dual-colored Myth vs Fact Split Box -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1">
+<span class="font-label-sm text-[11px] text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">cancel</span> Mythological Lore
+                  </span>
+<p class="font-body-sm text-[13px] text-on-surface leading-snug">
+                    A singular catastrophic bonfire by Roman legions that wiped out 700,000 unique scientific volumes and set back human discovery by a millennium.
+                  </p>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1">
+<span class="font-label-sm text-[11px] text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Corroborated History
+                  </span>
+<p class="font-body-sm text-[13px] text-on-surface leading-snug">
+                    Gradual institutional decay, city harbor warehouse burnings in 48 BCE, imperial defunding under Caracalla, and the Serapeum closure in 391 CE.
+                  </p>
+</div>
+</div>
+<!-- Verified Primary Citation Button -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">account_balance</span>
+                  Strabo's Geographica (Book XVII) &amp; Plutarch's Life of Caesar • Papyrus Oxyrhynchus
+                </span>
+<button class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm" onclick="toggleCitationDrawer('alexandria')" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect Primary Citation</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Nicholas Flamel -->
+<article class="bg-surface-container-low rounded-xl p-space-lg flex flex-col lg:flex-row gap-space-lg items-stretch shadow-lg transition-transform hover:-translate-y-0.5">
+<div class="w-full lg:w-72 flex-shrink-0 relative rounded-lg overflow-hidden min-h-[180px]">
+<div class="w-full h-full bg-cover bg-center" data-alt="Medieval Paris street and dark apothecary laboratory of Nicholas Flamel, glowing red alchemical philosopher's crucible, glass retorts, lead ingots turning to gleaming gold dust, parchment deeds and wax seal stamps, chiaroscuro lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgM9XJ2_eIhvfDUjD2N0sLj2PmaArRqXeLqIhBNmScM_ELWIBhXbuxIH2uafkVPZ5zlV1GqOxQnnpSN8wDaE7rtmugZRIPhD5rYmV-wrvpmTjtY-7MBvE-uc4t6ElxB0syUpFM7XbYC_N4EPvnTMdWg3-QbDSYRZa_YZN2nfB30Zz1nbaPb87Ele3ZpN-3MZ0MD_JaTePno1oFAMw6ivjt0vQUbfmCJF248ZmJfCfyJ8DRXwfwhnA2dw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-[10px] bg-tertiary-container/90 text-on-tertiary-container">Magic • Alchemy</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-[10px] bg-surface-container-lowest/90 text-on-surface">1382 CE</span>
+</div>
+</div>
+<div class="flex flex-col justify-between flex-grow gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Nicholas Flamel &amp; The Philosopher's Stone</h3>
+<span class="font-label-sm text-label-sm text-outline">Index #CR-0925</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Celebrated in occult literature as the immortal French clerk who synthesized the Lapis Philosophorum and granted eternal life to himself and Dame Perenelle.
+                </p>
+</div>
+<!-- Dual-colored Myth vs Fact Split Box -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1">
+<span class="font-label-sm text-[11px] text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">cancel</span> Mythological Lore
+                  </span>
+<p class="font-body-sm text-[13px] text-on-surface leading-snug">
+                    Deciphered the mysterious 'Book of Abraham the Jew' on April 25, 1382, transmuting pounds of mercury into pure gold and achieving immortality.
+                  </p>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1">
+<span class="font-label-sm text-[11px] text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Corroborated History
+                  </span>
+<p class="font-body-sm text-[13px] text-on-surface leading-snug">
+                    A successful manuscript copyist and Parisian landlord who amassed wealth via dowry and real estate. Alchemical treatises bearing his name were 17th-century fabrications.
+                  </p>
+</div>
+</div>
+<!-- Verified Primary Citation Button -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">account_balance</span>
+                  Archives Nationales de France • Cartulaire de Saint-Jacques-de-la-Boucherie (1418 testament)
+                </span>
+<button class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm" onclick="toggleCitationDrawer('flamel')" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect Primary Citation</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Dynamic Citation Drawer (Collapsible Preview) -->
+<div class="hidden bg-surface-container p-space-lg rounded-xl shadow-xl flex flex-col gap-space-md" id="citation-drawer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">policy</span>
+<span class="font-title-md text-title-md text-primary" id="drawer-title">Primary Archival Record Excerpt</span>
+</div>
+<button class="p-1 rounded hover:bg-surface-container-high text-outline hover:text-on-surface" onclick="toggleCitationDrawer()" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded font-label-sm text-body-sm text-on-surface-variant flex flex-col gap-2">
+<div class="flex items-center justify-between text-outline text-[11px]">
+<span id="drawer-id">Manuscript ID: MS-ARCH-FR-1418-TESTAMENT</span>
+<span class="text-secondary font-medium">Digital Watermark Corroborated</span>
+</div>
+<p class="italic font-body-sm text-on-surface leading-relaxed" id="drawer-text">
+              "Item, jehan Flamel clerc, laisse pour le salut de son ame à l'eglise Saint-Jacques la Boucherie... maison assise en la rue des escripvains..."
+            </p>
+<div class="flex items-center gap-4 text-[11px] text-outline pt-2">
+<span>Curator Sigil: <strong class="text-primary">Archiviste Paléographe</strong></span>
+<span>Physical Location: Paris, Archives Nationales, Carton S 890</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 3: COMMUNITY & SCHOLAR SUBMISSION  -->
+<!-- ========================================== -->
+<section class="bg-surface-container-low rounded-xl p-space-lg sm:p-space-xl flex flex-col gap-space-xl shadow-2xl">
+<!-- Portal Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Peer-Reviewed Registry</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Curator Submission Portal</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+              Contribute a verified folklore deconstruction. Submissions undergo rigorous vetting by our archival panel before induction into the digital codex.
+            </p>
+</div>
+<div class="bg-surface-container px-4 py-2 rounded flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[26px]">military_tech</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface font-semibold">Senior Archivist Review</span>
+<span class="font-label-sm text-[10px] text-outline">Average consensus time: 48h</span>
+</div>
+</div>
+</div>
+<!-- 4-Step Modular Progress Indicators -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-sm rounded flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-label-sm text-xs font-bold">1</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[11px] text-primary truncate">1. Metadata</span>
+<span class="font-label-sm text-[9px] text-outline truncate">Era &amp; Origin</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-label-sm text-xs font-bold">2</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[11px] text-primary truncate">2. Claim &amp; Myth</span>
+<span class="font-label-sm text-[9px] text-outline truncate">Folklore Narrative</span>
+</div>
+</div>
+<div class="bg-primary-container/20 p-space-sm rounded flex items-center gap-2.5 shadow-sm">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-xs font-bold">3</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[11px] text-on-surface font-bold truncate">3. Primary Sources</span>
+<span class="font-label-sm text-[9px] text-primary truncate">Corroboration</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest/60 p-space-sm rounded flex items-center gap-2.5 opacity-60">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-outline flex items-center justify-center font-label-sm text-xs">4</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[11px] text-outline truncate">4. Review &amp; Seal</span>
+<span class="font-label-sm text-[9px] text-outline truncate">Panel Verification</span>
+</div>
+</div>
+</div>
+<!-- Active Step Form Container -->
+<form class="bg-surface-container p-space-lg rounded-xl flex flex-col gap-space-lg shadow-inner" id="tale-form">
+<!-- Row 1: Title, Category, Era, Origin -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<div class="md:col-span-6 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
+<span>Tale Title</span>
+<span class="text-primary">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3.5 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="tale-title" required type="text" value="The Bell Witch of Adams, Tennessee"/>
+</div>
+<div class="md:col-span-6 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
+<span>Taxonomy Category</span>
+<span class="text-primary">*</span>
+</label>
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="tale-category" required>
+<option selected value="folklore">Folklore / Oral Tradition</option>
+<option value="magic">Magic / Esoterica</option>
+<option value="history">Archival History</option>
+<option value="folklore">Urban Mythos</option>
+</select>
+</div>
+<div class="md:col-span-4 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Era &amp; Period Date</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="tale-era" required type="text" value="1817 – 1821 CE"/>
+</div>
+<div class="md:col-span-8 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Geographical Origin</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="Robertson County, Tennessee, USA (Red River Settlement)"/>
+</div>
+</div>
+<!-- Row 2: Lead Summary (280 chars) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Lead Summary</label>
+<span class="font-label-sm text-[11px] text-outline">184 / 280 characters</span>
+</div>
+<textarea class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded p-3 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner leading-relaxed" id="tale-content" required rows="2">Strange poltergeist occurrences documented by local families in early 19th-century frontier settlements, claimed to be an invisible spirit haunting the homestead of John Bell Sr.</textarea>
+</div>
+<!-- Row 3: Myth Claim vs Historical Reality (Side by Side) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Field A: Folklore Claim -->
+<div class="flex flex-col gap-1.5 p-space-md bg-surface-container-lowest rounded-lg">
+<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">psychology_alt</span>
+<span>Folklore Claim (Popular Legend)</span>
+</div>
+<textarea class="w-full bg-surface-container text-on-surface font-body-sm text-body-sm rounded p-2.5 focus:outline-none focus:ring-1 focus:ring-secondary mt-1 shadow-inner" rows="3">A vengeful supernatural witch entity capable of clairvoyance, physical battery, and vocal mimicry, explicitly tormenting John Bell to his grave.</textarea>
+<span class="font-label-sm text-[10px] text-outline">Document common oral tradition narratives, superstitious testimonies, or pop literature.</span>
+</div>
+<!-- Field B: Corroborated Historical Fact -->
+<div class="flex flex-col gap-1.5 p-space-md bg-surface-container-lowest rounded-lg">
+<div class="flex items-center gap-1.5 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">assignment_turned_in</span>
+<span>Archival Reality (Corroborated Record)</span>
+</div>
+<textarea class="w-full bg-surface-container text-on-surface font-body-sm text-body-sm rounded p-2.5 focus:outline-none focus:ring-1 focus:ring-primary mt-1 shadow-inner" rows="3">Disputes over land transactions and contested water rights documented in county deed archives with neighbor Kate Batts, combined with localized neurological illness.</textarea>
+<span class="font-label-sm text-[10px] text-outline">Cite verifiable facts confirmed through legal registers, tax records, or medical journals.</span>
+</div>
+</div>
+<!-- Row 4: Verified Historical Source Metadata -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md pt-space-xs">
+<div class="md:col-span-5 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Archive / Repository Institution</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="tale-source" required type="text" value="Tennessee State Library and Archives"/>
+</div>
+<div class="md:col-span-4 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Document / Ledger ID</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner font-mono" type="text" value="TSLA-RG-1820-BELL-049"/>
+</div>
+<div class="md:col-span-3 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Verification Level</label>
+<div class="flex items-center gap-1 pt-1">
+<span class="px-2.5 py-1.5 rounded font-label-sm text-[11px] bg-primary/20 text-primary font-bold cursor-pointer">
+                  Primary Record
+                </span>
+<span class="px-2.5 py-1.5 rounded font-label-sm text-[11px] bg-surface-container-highest text-outline cursor-pointer hover:text-on-surface">
+                  Oral Reg.
+                </span>
+</div>
+</div>
+</div>
+<!-- Wizard Action Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-md">
+<button class="px-4 py-2 rounded bg-surface-container-highest hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Save as Draft</span>
+</button>
+<div class="flex items-center gap-space-sm">
+<button class="px-4 py-2 rounded bg-surface-container-low hover:bg-surface-container text-secondary font-label-sm text-label-sm transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Validate Primary Source</span>
+</button>
+<button class="px-6 py-2.5 rounded bg-primary text-on-primary font-title-md text-[14px] hover:bg-primary-container hover:text-on-primary-container transition-all shadow-[0_0_18px_rgba(242,202,80,0.25)] flex items-center gap-2" type="submit">
+<span>Submit to Curator Board</span>
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</button>
+</div>
+</div>
+</form>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 4: DATA MODEL SPEC & EXPORT DRAWER -->
+<!-- ========================================== -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-lg flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">code_blocks</span>
+<div class="flex flex-wrap items-baseline gap-2">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Data Schema: ChronicleEntry v2.4</span>
+<span class="font-label-sm text-[11px] text-outline">(TypeScript / REST / GraphQL • Open Academic Data Model)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-3 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors flex items-center gap-1" onclick="toggleSchemaSnippet()" type="button">
+<span class="material-symbols-outlined text-[15px]">terminal</span>
+<span id="schema-btn-text">View JSON Contract</span>
+</button>
+<a class="font-label-sm text-label-sm text-outline hover:text-primary transition-colors flex items-center gap-0.5" href="#">
+<span>Dev Specs</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Collapsible Schema Preview -->
+<div class="hidden pt-space-xs" id="schema-preview">
+<div class="bg-surface-container p-space-md rounded font-mono text-[12px] text-on-surface-variant overflow-x-auto leading-relaxed shadow-inner">
+<pre class="text-on-surface-variant"><code>{
+  <span class="text-secondary">"$schema"</span>: <span class="text-primary">"https://chronicles.archive/schema/v2.4/entry.json"</span>,
+  <span class="text-secondary">"chronicleId"</span>: <span class="text-primary">"CR-084-ORLOJ-PRAGUE"</span>,
+  <span class="text-secondary">"title"</span>: <span class="text-primary">"The Astronomical Clock of Prague"</span>,
+  <span class="text-secondary">"classification"</span>: {
+    <span class="text-secondary">"category"</span>: <span class="text-primary">"HISTORY_AND_LORE"</span>,
+    <span class="text-secondary">"temporalEra"</span>: <span class="text-primary">"RENAISSANCE"</span>,
+    <span class="text-secondary">"annoDomini"</span>: <span class="text-tertiary">1410</span>
+  },
+  <span class="text-secondary">"folkloreClaim"</span>: {
+    <span class="text-secondary">"summary"</span>: <span class="text-primary">"Blinded by council with hot iron so no duplicate clock would ever be forged."</span>,
+    <span class="text-secondary">"curationWeight"</span>: <span class="text-tertiary">0.89</span>
+  },
+  <span class="text-secondary">"archivalTruth"</span>: {
+    <span class="text-secondary">"summary"</span>: <span class="text-primary">"Jan Růže continued maintenance uninterrupted through 1497 municipal roll."</span>,
+    <span class="text-secondary">"primarySourceId"</span>: <span class="text-primary">"BODLEIAN-HUNT-392"</span>,
+    <span class="text-secondary">"verificationGrade"</span>: <span class="text-primary">"PRIMARY_ACADEMIC_CORROBORATED"</span>
+  }
+}</code></pre>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Interactive Handlers for In-Page Micro-Interactions -->
+<script>
+  function toggleCitationDrawer(tale) {
+    const drawer = document.getElementById('citation-drawer');
+    const title = document.getElementById('drawer-title');
+    const docId = document.getElementById('drawer-id');
+    const text = document.getElementById('drawer-text');
+
+    if (!drawer) return;
+
+    if (!tale || !drawer.classList.contains('hidden') && drawer.dataset.current === tale) {
+      drawer.classList.add('hidden');
+      drawer.dataset.current = '';
+      return;
+    }
+
+    if (tale === 'golem') {
+      title.innerText = 'Prague Rabbinical Responsa & Altneuschul Attic Inquest';
+      docId.innerText = 'Manuscript ID: MS-PRA-ALT-1598-LOEW';
+      text.innerText = '"In the writings of Rabbi Loew ben Bezalel, no automaton or Shem creature is recorded. Contemporary community registers of 1580–1609 document legal treatises, astronomical inquiries with Tycho Brahe, and standard communal rabbinic leadership."';
+    } else if (tale === 'alexandria') {
+      title.innerText = 'Alexandrian Mouseion Fiscal Allocation Ledger & Excavation Log';
+      docId.innerText = 'Manuscript ID: P.OXY-HIST-48-BCE';
+      text.innerText = '"Strabo (Geogr. 17.1.8) visited Alexandria in 24 BCE and described the Museum complex as active, noting the communal dining hall and living quarters for resident scholars, contradicting total destruction under the Caesar siege."';
+    } else if (tale === 'flamel') {
+      title.innerText = 'Archives Nationales de France • Testament de Nicolas Flamel';
+      docId.innerText = 'Manuscript ID: MS-ARCH-FR-1418-TESTAMENT';
+      text.innerText = '"Item, jehan Flamel clerc, laisse pour le salut de son ame à l\'eglise Saint-Jacques la Boucherie... maison assise en la rue des escripvains. L\'inventaire après décès démontre un patrimoine immobilier bourgeois ordinaire, sans instrument d\'alchimie."';
+    }
+
+    drawer.dataset.current = tale;
+    drawer.classList.remove('hidden');
+    drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function toggleSchemaSnippet() {
+    const preview = document.getElementById('schema-preview');
+    const btnText = document.getElementById('schema-btn-text');
+    if (!preview || !btnText) return;
+
+    const isHidden = preview.classList.contains('hidden');
+    if (isHidden) {
+      preview.classList.remove('hidden');
+      btnText.innerText = 'Close Schema Contract';
+    } else {
+      preview.classList.add('hidden');
+      btnText.innerText = 'View JSON Contract';
+    }
+  }
+
+  (function initialiseEpicCampaign() {
+    const epics = [
+      {title:'The Sphinx’s Riddle',era:'ANCIENT EGYPT · c. 2500 BCE',scene:'At Giza, an inscription and a storyteller offer competing accounts of who raised the pyramids. Which clue do you follow?',options:['Trace the workers’ settlement and food records','Trust the later tale of a vast slave army'],correct:0,reveal:'Excavations at Giza have uncovered workers’ settlements, bakeries and burials. Evidence points to organized laborers, not the popular image of a mass slave workforce.',tag:'A city built for the builders'},
+      {title:'The Oracle’s Smoke',era:'DELPHI · 4TH CENTURY BCE',scene:'A petitioner waits beneath Apollo’s temple. Was the oracle’s voice supernatural, ritual, or political?',options:['Compare ancient testimony with the sanctuary’s archaeology','Accept every prophecy as a literal prediction'],correct:0,reveal:'The Pythia was a real priestess at a major sanctuary. How her altered speech arose remains debated; no single explanation is settled.',tag:'A voice between worlds'},
+      {title:'The Library’s Last Flame',era:'ALEXANDRIA · 1ST CENTURY BCE',scene:'A scroll seller blames one fire for erasing all knowledge. A geographer describes the city’s scholarly community centuries later.',options:['Follow Strabo’s account and the changing city','Blame one fire for the library’s total destruction'],correct:0,reveal:'The Library’s decline was gradual and poorly documented. Strabo describes the Mouseion in 24 BCE; historians do not support a single fire destroying all classical knowledge.',tag:'The library that faded, not vanished'},
+      {title:'The Emperor’s Elixir',era:'ROME · 2ND CENTURY CE',scene:'A court physician offers a remedy said to restore youth. A wax tablet lists ingredients and payments. Do you trust the promise or inspect the record?',options:['Inspect the tablet and the remedy’s ingredients','Drink the elixir and trust the physician’s magic'],correct:0,reveal:'Ancient medical writers recorded remedies and theories, not reliable immortality. The elixir of eternal youth belongs to legend.',tag:'Medicine without immortality'},
+      {title:'The Northern Lights Omen',era:'VIKING AGE · c. 900 CE',scene:'A red aurora ripples above a Norse settlement. One skald calls it a bridge for the dead; a traveler describes light dancing in the sky.',options:['Record the phenomenon and the saga as belief','Declare the aurora proof that the dead are marching'],correct:0,reveal:'Auroras arise when charged solar particles interact with Earth’s atmosphere. Beliefs varied; the “bridge” interpretation is not a universal Viking doctrine.',tag:'Sky fire, many meanings'},
+      {title:'The Golem’s Footsteps',era:'PRAGUE · LATE 16TH CENTURY',scene:'A clay guardian is said to patrol Prague after Rabbi Judah Loew brought it to life. The community register says nothing of a creature.',options:['Separate the later legend from contemporary records','Treat silence in the register as proof the Golem lived'],correct:0,reveal:'The Golem is a powerful Jewish legend associated with Rabbi Judah Loew, but the familiar Prague story became widespread centuries later. Contemporary records do not verify its creation.',tag:'A legend shaped across generations'},
+      {title:'The Emerald Cipher',era:'HELLENISTIC EGYPT · LATE ANTIQUITY',scene:'An alchemist claims a green tablet holds the secret to turning lead into gold. Your notes reveal a text with a complicated translation history.',options:['Trace the text through Arabic and Latin traditions','Assume the tablet proves literal transmutation'],correct:0,reveal:'The Emerald Tablet is a real Hermetic text that influenced alchemy. Its legendary antiquity and claims of material transmutation are not verified facts.',tag:'A real text, a mythical promise'},
+      {title:'The Clockmaker’s Curse',era:'PRAGUE · 15TH CENTURY',scene:'The crowd says the Astronomical Clock’s maker was blinded so he could never build another. A municipal ledger waits in the archive.',options:['Read the city’s records of its horologist','Believe the curse and the blinding story'],correct:0,reveal:'The familiar blinding tale is not supported by contemporary records. Prague municipal documents name Jan Růže as a city horologist; the clock’s authorship and maintenance are more complex than legend suggests.',tag:'The horologist behind the myth'},
+      {title:'The Philosopher’s Stone',era:'MEDIEVAL EUROPE · 13TH CENTURY',scene:'A manuscript promises a stone that grants riches and long life. Marginal notes reveal years of experiments, coded recipes and practical laboratory work.',options:['Study the manuscript as alchemical thought and practice','Claim it proves gold and immortality were achieved'],correct:0,reveal:'Medieval alchemy combined experimentation with spiritual and philosophical ideas. No philosopher’s stone has been verified, though alchemical practice helped shape early chemistry.',tag:'The real work behind the impossible stone'},
+      {title:'The Alchemist’s Testament',era:'PARIS · 1418',scene:'Nicolas Flamel is remembered as an immortal alchemist who made gold. In Paris, you uncover a testament and property records bearing his name.',options:['Compare the legend with Flamel’s documented life','Follow the story that he discovered immortality'],correct:0,reveal:'Nicolas Flamel was a historical Parisian scribe and bookseller. The alchemist and immortal gold-maker legend grew after his death; records describe an ordinary charitable and property-owning life.',tag:'A scribe transformed by legend'}
+    ];
+    const storageKey='chronicles-epic-campaign-v1', stage=document.getElementById('campaign-stage'), track=document.getElementById('epic-track'), archive=document.getElementById('archive-content');
+    let state={current:0,score:0,choices:[],complete:false};
+    try { const saved=JSON.parse(localStorage.getItem(storageKey)); if(saved&&Array.isArray(saved.choices)&&saved.choices.length<=10) state={...state,...saved}; } catch(error) { console.warn('Campaign progress could not be loaded.',error); }
+    const save=()=>{try{localStorage.setItem(storageKey,JSON.stringify(state));}catch(error){console.warn('Campaign progress could not be saved.',error);}};
+    const render=()=>{
+      document.getElementById('score-display').textContent=state.score;
+      track.innerHTML=epics.map((_,i)=>`<span class="epic-step ${i<state.current?'done':''} ${i===state.current&&!state.complete?'current':''}" aria-label="Epic ${i+1} ${i<state.current?'complete':i===state.current?'current':'locked'}"></span>`).join('');
+      if(state.complete||state.current>=10){state.complete=true;stage.innerHTML=`<div class="reward-card"><span class="focus-kicker">Campaign Complete</span><h2>You have unfurled the archive.</h2><div class="reward-score">${state.score}</div><p class="scenario-text" style="margin:auto">Insight points · ${state.choices.length} epics explored</p><p class="scenario-text" style="margin:1.5rem auto">Ten clues followed through history and myth. Your reward: a richer chronicle, and the knowledge to tell evidence from legend.</p><button class="game-action" id="restart-campaign">Begin a New Journey</button></div>`;document.getElementById('restart-campaign').onclick=()=>{state={current:0,score:0,choices:[],complete:false};archive.classList.remove('show-archive');save();render();};return;}
+      const epic=epics[state.current],answer=state.choices[state.current];
+      stage.innerHTML=`<article class="scenario-card"><div class="focus-kicker">Epic ${state.current+1} of 10 <span style="padding-left:1rem;color:#99907c">${epic.era}</span></div><h2>${epic.title}</h2><p class="scenario-text">${epic.scene}</p><div class="choice-list">${epic.options.map((option,i)=>`<button class="choice-button ${answer&&answer.index===i?'selected':''}" data-choice="${i}" ${answer?'disabled':''}>${option}</button>`).join('')}</div>${answer?`<div class="feedback-panel"><h3>${answer.correct?'✦ Verified historical thread':'✧ The mythic path'}</h3><p class="scenario-text">${epic.reveal}</p><p class="font-label-sm text-label-sm text-primary">${answer.correct?'+10 insight · ':''}${epic.tag}</p><button class="game-action" id="next-epic">${state.current===9?'Claim your reward':'Unlock Epic '+(state.current+2)} →</button></div>`:''}</article>`;
+      if(!answer) stage.querySelectorAll('[data-choice]').forEach(button=>button.addEventListener('click',()=>{const index=Number(button.dataset.choice),correct=index===epic.correct;state.choices[state.current]={index,correct};if(correct)state.score+=10;save();render();}));
+      else document.getElementById('next-epic').addEventListener('click',()=>{state.current++;if(state.current===10)state.complete=true;save();render();document.getElementById('campaign').scrollIntoView({behavior:'smooth',block:'start'});});
+    };
+    render();
+    document.getElementById('archive-toggle').addEventListener('click',()=>{archive.classList.toggle('show-archive');const open=archive.classList.contains('show-archive');document.getElementById('archive-toggle').textContent=open?'Close the full archive':'Explore the full archive';if(open)document.querySelector('#archive-content > .relative').scrollIntoView({behavior:'smooth',block:'start'});});
+  }());
+
+  (function initialiseFocusLanding() {
+    const reveal = () => {
+      if (document.body.classList.contains('archive-revealed')) return;
+      document.body.classList.add('archive-revealed');
+      const archive = document.getElementById('archive-content');
+      if (archive) window.setTimeout(() => archive.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+    };
+    document.getElementById('begin-exploration')?.addEventListener('click', reveal);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 24) reveal();
+    }, { passive: true });
+  }());
+
+  (function initialiseChronicleArchive() {
+    const storageKey = 'chronicles-curiosities-tales';
+    const defaultTales = [
+      {
+        id: 'golem-of-prague',
+        title: 'The Golem of Prague',
+        category: 'folklore',
+        era: '1580 CE',
+        content: 'A famous Kabbalistic legend says Rabbi Judah Loew created a clay defender for Prague’s Jewish community.',
+        historicalSource: 'Prague Altneuschul Synagogue Municipal Archive'
+      },
+      {
+        id: 'library-of-alexandria',
+        title: 'The Fire of the Library of Alexandria',
+        category: 'history',
+        era: '48 BCE',
+        content: 'The library’s collections declined over centuries; historians find no evidence for one fire destroying all classical knowledge.',
+        historicalSource: 'Strabo, Geography 17.1.8; Alexandrian excavation records'
+      },
+      {
+        id: 'emerald-tablet',
+        title: 'The Emerald Tablet',
+        category: 'magic',
+        era: '300 CE',
+        content: 'This enigmatic Hermetic text became a foundation for medieval and Renaissance alchemical ideas about transformation.',
+        historicalSource: 'Leiden Papyrus X and Arabic Hermetic manuscript traditions'
+      },
+      {
+        id: 'brocken-spectre',
+        title: 'The Brocken Spectre',
+        category: 'folklore',
+        era: '16th century',
+        content: 'A giant figure seen in mountain mist is an optical phenomenon caused by a person’s shadow and a halo of light.',
+        historicalSource: 'German folkloric records and atmospheric optics research'
+      },
+      {
+        id: 'astronomical-clock',
+        title: 'The Astronomical Clock of Prague',
+        category: 'history',
+        era: '1410 CE',
+        content: 'The celebrated clock’s documented maintenance history is more reliable than the later tale that its maker was blinded.',
+        historicalSource: 'Prague municipal rolls and Bodleian Library MS-HUNT-392'
+      }
+    ];
+
+    let tales = [];
+    let activeCategory = 'all';
+    let searchTerm = '';
+
+    try {
+      const stored = JSON.parse(localStorage.getItem(storageKey) || 'null');
+      tales = Array.isArray(stored) ? stored : defaultTales;
+      if (!Array.isArray(stored)) {
+        localStorage.setItem(storageKey, JSON.stringify(tales));
+      }
+    } catch (error) {
+      console.error('Unable to load the local chronicle archive.', error);
+      tales = defaultTales;
+    }
+
+    const list = document.getElementById('tales-list');
+    const form = document.getElementById('tale-form');
+    const searchInputs = Array.from(document.querySelectorAll('input[placeholder*="Search"]'));
+    const categoryButtons = Array.from(document.querySelectorAll('button')).filter((button) => {
+      return /^(all|magic|history|folklore)/i.test(button.textContent.trim());
+    });
+    const categoryLabels = { magic: 'Magic', history: 'History', folklore: 'Folklore' };
+
+    if (!list) return;
+
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    }[character]));
+
+    const saveTales = () => {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(tales));
+      } catch (error) {
+        console.error('Unable to save the chronicle archive locally.', error);
+      }
+    };
+
+    const render = () => {
+      const visibleTales = tales.filter((tale) => {
+        const matchesCategory = activeCategory === 'all' || tale.category === activeCategory;
+        const searchableText = [tale.title, tale.category, tale.era, tale.content, tale.historicalSource].join(' ').toLowerCase();
+        return matchesCategory && searchableText.includes(searchTerm);
+      });
+
+      list.innerHTML = visibleTales.length ? visibleTales.map((tale) => `
+        <article class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-lg transition-transform hover:-translate-y-0.5">
+          <div class="flex flex-col gap-1">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="font-headline-md text-headline-md text-on-surface">${escapeHtml(tale.title)}</h3>
+              <span class="font-label-sm text-label-sm text-primary">${escapeHtml(categoryLabels[tale.category] || tale.category)}</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-outline">${escapeHtml(tale.era)}</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">${escapeHtml(tale.content)}</p>
+          <div class="flex flex-wrap items-center gap-1.5 pt-space-xs font-label-sm text-label-sm text-outline">
+            <span class="material-symbols-outlined text-[15px] text-primary">account_balance</span>
+            <span>${escapeHtml(tale.historicalSource)}</span>
+          </div>
+        </article>
+      `).join('') : `
+        <div class="bg-surface-container-low rounded-xl p-space-lg text-center font-body-sm text-on-surface-variant">
+          No chronicles match the current search.
+        </div>
+      `;
+    };
+
+    const setCategory = (category) => {
+      activeCategory = category;
+      categoryButtons.forEach((button) => {
+        const isActive = (category === 'all' && /^all/i.test(button.textContent.trim())) ||
+          new RegExp(`^${category}`, 'i').test(button.textContent.trim());
+        button.classList.toggle('bg-primary', isActive);
+        button.classList.toggle('text-on-primary', isActive);
+      });
+      render();
+    };
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const label = button.textContent.trim().toLowerCase();
+        setCategory(label.startsWith('all') ? 'all' : label.split(/\s|\(/)[0]);
+      });
+    });
+
+    searchInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        searchTerm = input.value.trim().toLowerCase();
+        searchInputs.forEach((otherInput) => {
+          if (otherInput !== input) otherInput.value = input.value;
+        });
+        render();
+      });
+    });
+
+    if (form) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const title = document.getElementById('tale-title').value.trim();
+        const category = document.getElementById('tale-category').value;
+        const era = document.getElementById('tale-era').value.trim();
+        const content = document.getElementById('tale-content').value.trim();
+        const historicalSource = document.getElementById('tale-source').value.trim();
+
+        if (!title || !era || !content || !historicalSource) return;
+
+        tales.unshift({
+          id: `tale-${Date.now()}`,
+          title,
+          category,
+          era,
+          content,
+          historicalSource
+        });
+        saveTales();
+        form.reset();
+        setCategory('all');
+        render();
+        list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    render();
+  }());
+</script></div></main><footer class="w-full bg-surface-container-lowest border-t border-primary/15 py-space-xl text-on-surface-variant"><div class="w-full px-gutter flex flex-col md:flex-row justify-between items-center gap-space-lg"><div class="flex flex-col gap-space-xs text-center md:text-left"><span class="font-headline-sm text-headline-sm text-primary">Chronicles &amp; Curiosities</span><p class="font-body-sm text-body-sm text-outline max-w-md">A scholarly digital repository safeguarding historical truths, illuminated manuscripts, and the living mythologies of world folklore.</p></div><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-outline"><span class="hover:text-primary transition-colors cursor-pointer">Manuscript Preservation Act</span><span class="hover:text-primary transition-colors cursor-pointer">Provenance Index</span><span class="hover:text-primary transition-colors cursor-pointer">Folio Taxonomy</span></div><div class="font-label-sm text-label-sm text-outline text-center md:text-right"><span>Anno Mundi MMXXIV • Open Academic Archive</span></div></div></footer></body></html>
