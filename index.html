@@ -44,6 +44,15 @@
   .reward-card { text-align:center; background:radial-gradient(ellipse at top,#282316,#111317 60%); } .reward-score { font:700 clamp(3.5rem,10vw,7rem)/1 "Playfair Display",serif; color:#f2ca50; margin:1rem; }
   .archive-toggle { display:block; margin:2rem auto 0; color:#99907c; background:transparent; text-decoration:underline; }
   .profile-button { border:1px solid rgba(242,202,80,.35); border-radius:6px; background:#1a1c1f; color:#f2ca50; padding:.7rem .9rem; cursor:pointer; font:11px "Space Mono",monospace; }
+  .sound-toggle { border:1px solid rgba(242,202,80,.35); border-radius:6px; background:#1a1c1f; color:#f2ca50; padding:.7rem .9rem; cursor:pointer; font:11px "Space Mono",monospace; }
+  .sound-toggle[aria-pressed="false"] { color:#99907c; border-color:#4d4635; }
+  .share-actions { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1rem; }
+  .share-button { margin-top:0; background:#282316; color:#f2ca50; border:1px solid rgba(242,202,80,.45); }
+  .share-card { width:min(480px,100%); box-sizing:border-box; border:1px solid rgba(242,202,80,.5); border-radius:12px; padding:1.6rem; background:radial-gradient(ellipse at top,#3a301d,#171719 62%); box-shadow:0 18px 50px rgba(0,0,0,.4); }
+  .share-card h3 { margin:.7rem 0 .6rem; color:#f4eddb; font:600 clamp(1.7rem,5vw,2.5rem)/1.1 "Playfair Display",serif; }
+  .share-card p { margin:.45rem 0; color:#d0c5af; line-height:1.6; }
+  .share-card .share-score { color:#f2ca50; font:600 1.8rem "Playfair Display",serif; }
+  .share-status { min-height:1.2em; margin:.8rem 0 0; color:#f2ca50; font:10px "Space Mono",monospace; }
   .codex-backdrop { position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:1rem; background:rgba(0,0,0,.78); backdrop-filter:blur(10px); }
   .codex-backdrop[hidden] { display:none; }
   .codex-dialog { width:min(760px,100%); max-height:min(86svh,900px); overflow:auto; border:1px solid rgba(242,202,80,.35); border-radius:16px; background:#111317; padding:clamp(1.2rem,4vw,2rem); box-shadow:0 25px 100px #000; }
@@ -65,8 +74,9 @@
   @media(max-width:640px) { .choice-list{grid-template-columns:1fr}.epic-track{gap:.25rem}.campaign-top{align-items:flex-start;flex-direction:column} }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
 </style></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-primary/20 shadow-[0_4px_24px_rgba(0,0,0,0.5)]"><div class="h-20 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded border border-primary/30 p-0.5 bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">explore</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-wide leading-none">Chronicles &amp; Curiosities</span><span class="font-label-sm text-label-sm text-outline tracking-widest uppercase mt-0.5">Archive of Lore, Magic &amp; Archival Truth</span></div></div></div><nav class="hidden xl:flex items-center gap-space-lg h-full" data-active-classes="text-primary border-b-2 border-primary"><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="home-and-tales" href="#">Home &amp; Tales</a><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="history-vs-myth-timeline" href="#">History vs. Myth Timeline</a><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="curator-submission-portal" href="#">Curator Submission Portal</a><a class="h-full flex items-center font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors tracking-wide border-b-2 border-transparent" data-path="archival-colophon" href="#">Archival Colophon</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center relative"><span class="material-symbols-outlined absolute left-2.5 text-outline text-[18px] pointer-events-none">search</span><input class="w-56 lg:w-64 bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded border border-outline-variant/40 pl-8 pr-12 py-1.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search the codex..." type="text"/><kbd class="absolute right-2 font-label-sm text-label-sm text-outline border border-outline-variant/60 rounded px-1.5 py-0.5 bg-surface-container-high">⌘K</kbd></div><div class="hidden lg:flex items-center gap-space-xs"><button class="px-2 py-1 rounded font-label-sm text-label-sm border border-tertiary/40 bg-surface-container text-tertiary hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors" type="button">Magic</button><button class="px-2 py-1 rounded font-label-sm text-label-sm border border-secondary/40 bg-surface-container text-secondary hover:bg-secondary-container hover:text-on-secondary-container transition-colors" type="button">History</button><button class="px-2 py-1 rounded font-label-sm text-label-sm border border-primary/40 bg-surface-container text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors" type="button">Folklore</button></div><div class="flex items-center gap-space-sm pl-space-xs border-l border-outline-variant/30"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-sm text-label-sm text-primary leading-tight">Senior Archivist</span><span class="font-label-sm text-[10px] text-outline leading-tight">Index Rank IV</span></div><div class="relative flex items-center justify-center p-0.5 rounded-full border border-primary/40"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvp1s4gm7afQoZLTsHqPbX0K-YwntkWdmiMs6ZcR2U0shd7tSMDU2zSrWZ-fpHMFkwHbRE-kuGQcj8Qa5-90oMlY8hAF3n0n6gN3t36jO-dOuhtANoMqem2Dmq9-rkMVaV8sPJnsXsNJQ6CM2saFOMK6xu0IPMOsSdZ9fsGy4QKAslLcNDyKCKXOH3hU3MYSPl3UwCBqJvwXAYjOq3qRrUWb8TwfTIO1Vr_DnYa8xd_Oz8j4bFlN80Yw"/></div></div></div></div></header><main class="w-full bg-surface min-h-screen"><section class="focus-landing" id="focus-landing" aria-labelledby="focus-title"><div class="focus-copy"><span class="focus-kicker">A Choice-Driven Chronicle</span><h1 id="focus-title">Ten epics. Ten choices. How much of history is hidden inside its myths?</h1><button class="focus-button" id="begin-exploration" type="button">Begin the Journey <span class="material-symbols-outlined" aria-hidden="true">south</span></button><p class="focus-hint">A journey through history, folklore &amp; magic</p></div></section><div id="archive-content" class="flex flex-col w-full pt-20">
-<section id="campaign" aria-label="Epic campaign"><div class="campaign-wrap"><div class="campaign-top"><div><span class="focus-kicker">Chronicles &amp; Curiosities · Campaign</span><h1 style="font:600 clamp(1.8rem,4vw,2.6rem) 'Playfair Display',serif;margin:.5rem 0">The Unwritten Archive</h1></div><div style="display:flex;align-items:center;gap:.75rem"><div class="font-label-sm text-label-sm text-primary">✦ <span id="score-display">0</span> insight</div><button class="profile-button" id="open-codex" type="button">Player Codex</button></div></div><div class="epic-track" id="epic-track" aria-label="Campaign progress"></div><div id="campaign-stage" aria-live="polite"></div><button id="archive-toggle" class="archive-toggle" type="button">Explore the full archive</button></div></section>
+<section id="campaign" aria-label="Epic campaign"><div class="campaign-wrap"><div class="campaign-top"><div><span class="focus-kicker">Chronicles &amp; Curiosities · Campaign</span><h1 style="font:600 clamp(1.8rem,4vw,2.6rem) 'Playfair Display',serif;margin:.5rem 0">The Unwritten Archive</h1></div><div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:flex-end"><div class="font-label-sm text-label-sm text-primary">✦ <span id="score-display">0</span> insight</div><button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Turn ambient audio on">Sound off</button><button class="profile-button" id="open-codex" type="button">Player Codex</button></div></div><div class="epic-track" id="epic-track" aria-label="Campaign progress"></div><div id="campaign-stage" aria-live="polite"></div><button id="archive-toggle" class="archive-toggle" type="button">Explore the full archive</button></div></section>
 <div class="codex-backdrop" id="codex-modal" hidden><section class="codex-dialog" role="dialog" aria-modal="true" aria-labelledby="codex-title"><div class="codex-heading"><div><span class="focus-kicker">Your Campaign Record</span><h2 id="codex-title" style="font:600 2rem 'Playfair Display',serif;margin:.4rem 0">Player Codex</h2><p id="codex-title-earned" class="scenario-text" style="margin:.2rem 0"></p></div><button id="close-codex" class="codex-close" type="button" aria-label="Close Player Codex">×</button></div><div class="codex-stats" id="codex-stats"></div><h3 class="font-headline-sm text-headline-sm text-on-surface">Achievements</h3><div class="codex-badges" id="codex-badges"></div><h3 class="font-headline-sm text-headline-sm text-on-surface">Choice History</h3><div class="codex-history" id="codex-history"></div><button id="reset-journey" class="reset-button" type="button">Reset Journey</button></section></div>
+<div class="codex-backdrop" id="share-modal" hidden><section class="codex-dialog" role="dialog" aria-modal="true" aria-labelledby="share-title"><div class="codex-heading"><div><span class="focus-kicker">A Discovery Worth Keeping</span><h2 id="share-title" style="font:600 2rem 'Playfair Display',serif;margin:.4rem 0">Share Your Discovery</h2></div><button id="close-share" class="codex-close" type="button" aria-label="Close Share Your Discovery">×</button></div><div id="share-card-preview"></div><div class="share-actions"><button class="game-action" id="copy-discovery" data-sound="success" type="button">Copy Summary</button><button class="game-action share-button" id="download-discovery" data-sound="success" type="button">Download Image</button></div><p class="share-status" id="share-status" role="status" aria-live="polite"></p></section></div>
 <!-- Subtle Ambient Glow Canvas Decorators (contained) -->
 <div class="relative w-full overflow-hidden">
 <div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none"></div>
@@ -780,7 +790,33 @@
     ];
     const storageKey='chronicles-epic-campaign-v1', stage=document.getElementById('campaign-stage'), track=document.getElementById('epic-track'), archive=document.getElementById('archive-content');
     const codexModal=document.getElementById('codex-modal');
+    const shareModal=document.getElementById('share-modal');
+    const soundToggle=document.getElementById('sound-toggle');
     let state={current:0,score:0,choices:[],complete:false};
+    let audioContext=null;
+    let soundEnabled=false;
+    try { soundEnabled=localStorage.getItem('chronicles-sound-enabled')==='true'; } catch(error) { console.warn('Sound preference could not be loaded.',error); }
+    const playTone=(kind='click')=>{
+      if(!soundEnabled) return;
+      const AudioContext=window.AudioContext||window.webkitAudioContext;
+      if(!AudioContext) return;
+      if(!audioContext) audioContext=new AudioContext();
+      if(audioContext.state==='suspended') audioContext.resume();
+      const now=audioContext.currentTime, oscillator=audioContext.createOscillator(), gain=audioContext.createGain();
+      const settings={click:[520,.06,'sine'],turn:[240,.16,'triangle'],success:[660,.32,'sine']}[kind]||[520,.06,'sine'];
+      oscillator.type=settings[2]; oscillator.frequency.setValueAtTime(settings[0],now);
+      if(kind==='success') oscillator.frequency.exponentialRampToValueAtTime(990,now+settings[1]);
+      gain.gain.setValueAtTime(.0001,now); gain.gain.exponentialRampToValueAtTime(.08,now+.01); gain.gain.exponentialRampToValueAtTime(.0001,now+settings[1]);
+      oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(now); oscillator.stop(now+settings[1]+.02);
+    };
+    const updateSoundToggle=()=>{soundToggle.textContent=soundEnabled?'Sound on':'Sound off';soundToggle.setAttribute('aria-pressed',String(soundEnabled));soundToggle.setAttribute('aria-label',soundEnabled?'Turn ambient audio off':'Turn ambient audio on');};
+    soundToggle.addEventListener('click',()=>{soundEnabled=!soundEnabled;try{localStorage.setItem('chronicles-sound-enabled',String(soundEnabled));}catch(error){console.warn('Sound preference could not be saved.',error);}updateSoundToggle();if(soundEnabled)playTone('success');});
+    updateSoundToggle();
+    document.addEventListener('click',event=>{
+      const button=event.target instanceof Element?event.target.closest('button'):null;
+      if(!button||button.id==='sound-toggle'||button.hasAttribute('data-choice')||button.hasAttribute('data-silent')) return;
+      playTone(button.dataset.sound||'click');
+    },true);
     try { const saved=JSON.parse(localStorage.getItem(storageKey)); if(saved&&Array.isArray(saved.choices)&&saved.choices.length<=10) state={...state,...saved}; } catch(error) { console.warn('Campaign progress could not be loaded.',error); }
     const save=()=>{try{localStorage.setItem(storageKey,JSON.stringify(state));}catch(error){console.warn('Campaign progress could not be saved.',error);}};
     const getStats=()=>{
@@ -806,10 +842,48 @@
     };
     const openCodex=()=>{renderCodex();codexModal.hidden=false;document.getElementById('close-codex').focus();};
     const closeCodex=()=>{codexModal.hidden=true;document.getElementById('open-codex').focus();};
+    const closeShare=()=>{shareModal.hidden=true;};
     document.getElementById('open-codex').addEventListener('click',openCodex);
     document.getElementById('close-codex').addEventListener('click',closeCodex);
     codexModal.addEventListener('click',event=>{if(event.target===codexModal)closeCodex();});
+    document.getElementById('close-share').addEventListener('click',closeShare);
+    shareModal.addEventListener('click',event=>{if(event.target===shareModal)closeShare();});
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!codexModal.hidden)closeCodex();});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!shareModal.hidden)closeShare();});
+    const wrapCanvasText=(context,text,x,y,maxWidth,lineHeight)=>{
+      const words=text.split(' '); let line='';
+      words.forEach(word=>{const test=line?`${line} ${word}`:word;if(context.measureText(test).width>maxWidth&&line){context.fillText(line,x,y);line=word;y+=lineHeight;}else line=test;});
+      if(line) context.fillText(line,x,y);
+      return y;
+    };
+    const getShareDetails=(epic,answer)=>{
+      const result=answer&&answer.correct?'Verified historical thread':'Mythic path explored';
+      const summary=`I explored "${epic.title}" (${epic.era}) in Chronicles & Curiosities. ${result}: ${epic.tag}. Insight score: ${state.score}.`;
+      return {result,summary};
+    };
+    const renderShareCard=(epic,answer)=>{
+      const details=getShareDetails(epic,answer);
+      document.getElementById('share-card-preview').innerHTML=`<article class="share-card"><span class="focus-kicker">Chronicles &amp; Curiosities · Discovery</span><h3>${epic.title}</h3><p class="font-label-sm text-label-sm text-primary">${epic.era}</p><p>${details.result}: ${epic.tag}</p><p class="share-score">${state.score} insight</p><p class="font-label-sm text-label-sm text-outline">The Unwritten Archive · Epic ${state.current+1} of 10</p></article>`;
+      document.getElementById('share-status').textContent='';
+      shareModal.hidden=false;
+      document.getElementById('close-share').focus();
+      shareModal.dataset.summary=details.summary;
+    };
+    const openShare=()=>{const index=state.complete?9:state.current,epic=epics[index],answer=state.choices[index];if(epic&&answer)renderShareCard(epic,answer);};
+    document.getElementById('copy-discovery').addEventListener('click',async()=>{
+      const text=shareModal.dataset.summary||''; if(!text) return;
+      try { if(navigator.clipboard&&navigator.clipboard.writeText) await navigator.clipboard.writeText(text); else {const fallback=document.createElement('textarea');fallback.value=text;document.body.appendChild(fallback);fallback.select();document.execCommand('copy');fallback.remove();} document.getElementById('share-status').textContent='Summary copied to your clipboard.'; } catch(error) { document.getElementById('share-status').textContent='Copy was blocked. Select the card text to share it.'; console.warn('Discovery summary could not be copied.',error); }
+    });
+    document.getElementById('download-discovery').addEventListener('click',()=>{
+      const index=state.complete?9:state.current,epic=epics[index],answer=state.choices[index];if(!epic||!answer)return;
+      const canvas=document.createElement('canvas'),context=canvas.getContext('2d'),width=1200,height=760,padding=90;
+      canvas.width=width;canvas.height=height;context.fillStyle='#111317';context.fillRect(0,0,width,height);context.strokeStyle='#f2ca50';context.lineWidth=3;context.strokeRect(36,36,width-72,height-72);
+      context.fillStyle='#f2ca50';context.font='26px monospace';context.fillText('CHRONICLES & CURIOSITIES · DISCOVERY',padding,125);
+      context.fillStyle='#f4eddb';context.font='600 68px Georgia';let y=220;y=wrapCanvasText(context,epic.title,padding,y,width-padding*2,78);
+      context.fillStyle='#d0c5af';context.font='26px monospace';context.fillText(epic.era,padding,y+70);context.font='30px Arial';y=wrapCanvasText(context,`${answer.correct?'Verified historical thread':'Mythic path explored'}: ${epic.tag}`,padding,y+135,width-padding*2,46);
+      context.fillStyle='#f2ca50';context.font='600 38px Georgia';context.fillText(`${state.score} insight`,padding,height-115);
+      const link=document.createElement('a');link.download=`chronicles-discovery-epic-${index+1}.png`;link.href=canvas.toDataURL('image/png');link.click();document.getElementById('share-status').textContent='Discovery card downloaded.';
+    });
     document.getElementById('reset-journey').addEventListener('click',()=>{
       if(!window.confirm('Reset your journey? This clears epic progress, choices, score, discoveries and achievements.')) return;
       state={current:0,score:0,choices:[],complete:false};
@@ -822,11 +896,11 @@
     const render=()=>{
       document.getElementById('score-display').textContent=state.score;
       track.innerHTML=epics.map((_,i)=>`<span class="epic-step ${i<state.current?'done':''} ${i===state.current&&!state.complete?'current':''}" aria-label="Epic ${i+1} ${i<state.current?'complete':i===state.current?'current':'locked'}"></span>`).join('');
-      if(state.complete||state.current>=10){state.complete=true;stage.innerHTML=`<div class="reward-card"><span class="focus-kicker">Campaign Complete</span><h2>You have unfurled the archive.</h2><div class="reward-score">${state.score}</div><p class="scenario-text" style="margin:auto">Insight points · ${state.choices.length} epics explored</p><p class="scenario-text" style="margin:1.5rem auto">Ten clues followed through history and myth. Your reward: a richer chronicle, and the knowledge to tell evidence from legend.</p><button class="game-action" id="restart-campaign">Begin a New Journey</button></div>`;document.getElementById('restart-campaign').onclick=()=>{state={current:0,score:0,choices:[],complete:false};archive.classList.remove('show-archive');save();render();};return;}
+      if(state.complete||state.current>=10){state.complete=true;stage.innerHTML=`<div class="reward-card"><span class="focus-kicker">Campaign Complete</span><h2>You have unfurled the archive.</h2><div class="reward-score">${state.score}</div><p class="scenario-text" style="margin:auto">Insight points · ${state.choices.length} epics explored</p><p class="scenario-text" style="margin:1.5rem auto">Ten clues followed through history and myth. Your reward: a richer chronicle, and the knowledge to tell evidence from legend.</p><div class="share-actions" style="justify-content:center"><button class="game-action" id="share-complete" type="button">Share Your Discovery</button><button class="game-action share-button" id="restart-campaign" type="button">Begin a New Journey</button></div></div>`;document.getElementById('share-complete').onclick=()=>{openShare();};document.getElementById('restart-campaign').onclick=()=>{state={current:0,score:0,choices:[],complete:false};archive.classList.remove('show-archive');save();render();};return;}
       const epic=epics[state.current],answer=state.choices[state.current];
-      stage.innerHTML=`<article class="scenario-card"><div class="focus-kicker">Epic ${state.current+1} of 10 <span style="padding-left:1rem;color:#99907c">${epic.era}</span></div><h2>${epic.title}</h2><p class="scenario-text">${epic.scene}</p><div class="choice-list">${epic.options.map((option,i)=>`<button class="choice-button ${answer&&answer.index===i?'selected':''}" data-choice="${i}" ${answer?'disabled':''}>${option}</button>`).join('')}</div>${answer?`<div class="feedback-panel"><h3>${answer.correct?'✦ Verified historical thread':'✧ The mythic path'}</h3><p class="scenario-text">${epic.reveal}</p><p class="font-label-sm text-label-sm text-primary">${answer.correct?'+10 insight · ':''}${epic.tag}</p><button class="game-action" id="next-epic">${state.current===9?'Claim your reward':'Unlock Epic '+(state.current+2)} →</button></div>`:''}</article>`;
-      if(!answer) stage.querySelectorAll('[data-choice]').forEach(button=>button.addEventListener('click',()=>{const index=Number(button.dataset.choice),correct=index===epic.correct;state.choices[state.current]={index,correct};if(correct)state.score+=10;save();render();}));
-      else document.getElementById('next-epic').addEventListener('click',()=>{state.current++;if(state.current===10)state.complete=true;save();render();document.getElementById('campaign').scrollIntoView({behavior:'smooth',block:'start'});});
+      stage.innerHTML=`<article class="scenario-card"><div class="focus-kicker">Epic ${state.current+1} of 10 <span style="padding-left:1rem;color:#99907c">${epic.era}</span></div><h2>${epic.title}</h2><p class="scenario-text">${epic.scene}</p><div class="choice-list">${epic.options.map((option,i)=>`<button class="choice-button ${answer&&answer.index===i?'selected':''}" data-choice="${i}" ${answer?'disabled':''}>${option}</button>`).join('')}</div>${answer?`<div class="feedback-panel"><h3>${answer.correct?'✦ Verified historical thread':'✧ The mythic path'}</h3><p class="scenario-text">${epic.reveal}</p><p class="font-label-sm text-label-sm text-primary">${answer.correct?'+10 insight · ':''}${epic.tag}</p><div class="share-actions"><button class="game-action" id="next-epic" data-sound="turn">${state.current===9?'Claim your reward':'Unlock Epic '+(state.current+2)} →</button><button class="game-action share-button" id="share-milestone" type="button">Share Your Discovery</button></div></div>`:''}</article>`;
+      if(!answer) stage.querySelectorAll('[data-choice]').forEach(button=>button.addEventListener('click',()=>{const index=Number(button.dataset.choice),correct=index===epic.correct;state.choices[state.current]={index,correct};if(correct)state.score+=10;save();playTone(correct?'success':'click');render();}));
+      else { document.getElementById('share-milestone').addEventListener('click',()=>{openShare();}); document.getElementById('next-epic').addEventListener('click',()=>{state.current++;if(state.current===10)state.complete=true;save();render();document.getElementById('campaign').scrollIntoView({behavior:'smooth',block:'start'});}); }
     };
     render();
     document.getElementById('archive-toggle').addEventListener('click',()=>{archive.classList.toggle('show-archive');const open=archive.classList.contains('show-archive');document.getElementById('archive-toggle').textContent=open?'Close the full archive':'Explore the full archive';if(open)document.querySelector('#archive-content > .relative').scrollIntoView({behavior:'smooth',block:'start'});});
